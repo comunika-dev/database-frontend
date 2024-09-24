@@ -17,7 +17,7 @@ function Card({children}:CardProps){
   )
 }
 
-function Head({title, value, description}:CardsProps){
+function Head({title, value}:CardsProps){
   return(
     <div className='bg-[#e8e8e8] p-8'>
     <div className='flex flex-row justify-between'>

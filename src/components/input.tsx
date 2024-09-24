@@ -28,7 +28,7 @@ function InputField({children}:FormProps) {
     </>
   );
 }
-function InputText ({value,onChange,label, rows,maxLength,name,message,required,placeholder,type}:InputProps){
+function InputText ({label,name,message,required,placeholder,type}:InputProps){
   return (
     <Form.Item
       label={label}

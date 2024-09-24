@@ -51,7 +51,8 @@ export const columnsStartup:ColumnDef<Participant>[] = [
   },
   {
     accessorKey:'business_year',
-    header:'Ano do negócio'
+    header:'Ano do negócio',
+    cell:({row})=> formatDate(row.getValue('business_year'))
   },
   {
     accessorKey:'business_idea',

@@ -1,15 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import {useState } from "react";
 import { getItem } from "../utils/get-item";
-import { Home as Inicio, Investors, Campany, StartUps, Mentors, SignIn, PageNotFount } from "../pages";
-import { Route, Routes, useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import {Investors, Campany, StartUps, Mentors, SignIn, PageNotFount } from "../pages";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { ConfigProvider, Layout, Menu } from "antd";
 import theme from "../utils/theme";
 import ptBr from "antd/locale/pt_BR";
 import styles from './index.module.scss'
 import {ChevronLeft, ChevronRight} from 'lucide-react'
-import {QrcodeOutlined,DashboardOutlined,UserOutlined,UsergroupAddOutlined,AccountBookOutlined} from '@ant-design/icons'
-import { role, RoleChecker } from "@/utils/role";
-import { MainContext } from "@/context/main.context";
+import {QrcodeOutlined,UserOutlined,UsergroupAddOutlined,AccountBookOutlined} from '@ant-design/icons'
 
 const { Header, Sider, Content } = Layout;
 
@@ -18,7 +16,6 @@ const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { pathname } = location;
-  const {user}:any = useContext(MainContext);
 
   // console.log("Usuario: ",user)
 

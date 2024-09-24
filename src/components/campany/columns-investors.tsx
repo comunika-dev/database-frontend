@@ -11,13 +11,13 @@ export type Participant = {
   investiment_type:string
 }
 
-function formatDate(dateString: string) {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat('pt-BR', {
-    day: 'numeric',
-    month: 'long',
-  }).format(date);
-}
+// function formatDate(dateString: string) {
+//   const date = new Date(dateString);
+//   return new Intl.DateTimeFormat('pt-BR', {
+//     day: 'numeric',
+//     month: 'long',
+//   }).format(date);
+// }
 
 
 export const columnsInvestor:ColumnDef<Participant>[] = [

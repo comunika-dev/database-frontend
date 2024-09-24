@@ -1,8 +1,8 @@
 import { constants } from '@/utils/constants-base';
 import { DataTable } from '../../components/campany/campany';
 import { columns } from '../../components/campany/columns';
-import { Form, Button, Modal, Input, Select } from 'antd'
-import React, { useContext, useEffect, useState } from 'react'
+import { Form, Button, Modal, Select } from 'antd'
+import  { useContext, useEffect, useState } from 'react'
 import {InputField} from '@/components/input';
 import { MainContext } from '@/context/main.context';
 import { role } from '@/utils/role';
@@ -63,7 +63,6 @@ function Campany() {
     getEnteprise();
   },[])
   
-  console.log(data)
 
   
 

@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import {message,notification} from 'antd'
+import {notification} from 'antd'
 import { NotificationPlacement } from 'antd/es/notification/interface';
 import { useSearchParams } from "react-router-dom";
 import { RoleChecker } from "@/utils/role";
@@ -13,7 +13,7 @@ export const MainContextProvider  = ({children}:{children:React.ReactNode}) =>{
   const [api, contextHolder] = notification.useNotification();
   const [users, setUser] = useState<any>({});
 
-  const [useSearch, setUseSearch] = useSearchParams();
+  const [useSearch, setUseSearch] = useSearchParams('');
 
   const firstname = useSearch.get('username');
   const lastname = useSearch.get('lastname');
@@ -23,6 +23,8 @@ export const MainContextProvider  = ({children}:{children:React.ReactNode}) =>{
     if(firstname !== null || lastname !== null || datainfo !== null){
        const userData:any = {firstname,lastname,datainfo};
        localStorage.setItem('user_logged',JSON.stringify(userData));
+     }else{
+      setUseSearch('')
      }
    
      const storedUser = localStorage.getItem('user_logged');

@@ -1,5 +1,4 @@
 import { Form, Select as SelectField } from "antd";
-import React, { useState } from "react";
 
 interface OptionsProps {
   value:string

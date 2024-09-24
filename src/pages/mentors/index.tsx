@@ -1,8 +1,8 @@
 import { constants } from '@/utils/constants-base';
 import { DataTable } from '../../components/campany/campany';
 import { columnsMentors } from '../../components/campany/columns-mentors';
-import { Form, Button, Modal, Input } from 'antd'
-import React, { useContext, useEffect, useState } from 'react'
+import { Form, Button, Modal } from 'antd'
+import { useContext, useEffect, useState } from 'react'
 import {InputField} from '@/components/input';
 import { MainContext } from '@/context/main.context';
 import {PlusOutlined} from '@ant-design/icons'
@@ -11,7 +11,7 @@ import { role } from '@/utils/role';
 function Billing() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<any>([]);
-  const {user}:any = useContext(MainContext);
+  const {user,openNotificationWithIcon}:any = useContext(MainContext);
 
   const [form] = Form.useForm();
 
@@ -35,8 +35,13 @@ function Billing() {
       })
     }).then(async(response) =>{
       const data = await response.json();
-      console.log(data);
-      await getMentor();
+      if(data.mentor){
+        console.log(data);
+        await getMentor();
+        
+      }else{
+        openNotificationWithIcon('error','Erro encontrado, tente verificar se os dados cumpreem com o recomendado!');
+      }
     }).catch(err=>{
       console.log("Erro encontrado ao adicionar nova empresa", err)
     })

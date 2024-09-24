@@ -12,7 +12,6 @@ import { useState } from "react";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -24,7 +23,6 @@ import {
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-  Filter,
   ListFilter,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -47,7 +45,6 @@ export function DataTable<TData, TValue>({
 }: DataTableProps<TData, TValue>) {
   const [filter, setFilter] = useState<string>("");
   const [sort, setSort] = useState<SortingState>([]);
-  const [getSort, setGetSort] = useState();
 
   const table = useReactTable({
     data,

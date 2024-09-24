@@ -1,4 +1,4 @@
-import {ThemeConfig, theme as antTheme} from 'antd'
+import {ThemeConfig} from 'antd'
 import colors from './colors'
 
 const theme:ThemeConfig = {

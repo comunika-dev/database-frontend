@@ -1,11 +1,10 @@
 import { constants } from '@/utils/constants-base';
 import { DataTable } from '../../components/campany/campany';
 import { columnsStartup } from '../../components/campany/columns-startup';
-import { Form, Button, Modal, Input } from 'antd'
-import React, { useContext, useEffect, useState } from 'react'
+import { Form, Button, Modal} from 'antd'
+import { useContext, useEffect, useState } from 'react'
 import {InputField} from '@/components/input';
 import { Select } from '@/components/select';
-import { PlusIcon } from 'lucide-react';
 import {PlusOutlined} from '@ant-design/icons'
 import { MainContext } from '@/context/main.context';
 import { role } from '@/utils/role';
@@ -39,7 +38,11 @@ function MyAccount() {
     }).then(async(response) =>{
       const data = await response.json();
       console.log(data);
-      await getStartup();
+      if(data.startup){
+        await getStartup();
+      }else{
+        openNotificationWithIcon('error','Erro encontrado, tente verificar se os dados cumpreem com o recomendado!');
+      }
     }).catch(err=>{
       console.log("Erro encontrado ao adicionar nova empresa", err)
     })

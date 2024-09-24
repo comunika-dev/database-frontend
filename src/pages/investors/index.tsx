@@ -1,8 +1,8 @@
 import { constants } from '@/utils/constants-base';
 import { DataTable } from '../../components/campany/campany';
 import { columnsInvestor } from '../../components/campany/columns-investors';
-import { Form, Button, Modal, Input } from 'antd'
-import React, { useContext, useEffect, useState } from 'react'
+import { Form, Button, Modal } from 'antd'
+import { useContext, useEffect, useState } from 'react'
 import {InputField} from '@/components/input';
 import { role } from '@/utils/role';
 import { MainContext } from '@/context/main.context';
@@ -12,7 +12,7 @@ import {PlusOutlined} from '@ant-design/icons'
 function MyQrCodes() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState<any>([]);
-  const {user}:any = useContext(MainContext);
+  const {user,openNotificationWithIcon}:any = useContext(MainContext);
 
   const [form] = Form.useForm();
 
@@ -36,8 +36,12 @@ function MyQrCodes() {
       })
     }).then(async(response) =>{
       const data = await response.json();
-      console.log(data);
-      await getInvestors();
+      if(data.investor){
+        await getInvestors();
+
+      }else{
+        openNotificationWithIcon('error','Erro encontrado, tente verificar se os dados cumpreem com o recomendado!')
+      }
     }).catch(err=>{
       console.log("Erro encontrado ao adicionar nova empresa", err)
     })
@@ -77,7 +81,7 @@ function MyQrCodes() {
     footer={[
       <Button className="h-[42px] rounded-md" icon={<PlusOutlined/>} onClick={()=>{
         form.validateFields().then((values)=>{
-          // form.resetFields();
+          form.resetFields();
           handleSubmit(values);
         }).catch((info)=>{
           console.log('Validate failed: ', info);
