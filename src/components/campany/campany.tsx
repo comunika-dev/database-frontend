@@ -92,9 +92,9 @@ export function DataTable<TData, TValue>({
         </div>
         <div className="flex flex-row gap-2 justify-end w-full">
           <Select onValueChange={handleSortChange}>
-            <SelectTrigger className="w-[150px] h-10 rounded-md border-[#F4AC35] focus:ring-[#F4AC35] focus:border-[#F4AC35] flex flex-row gap-1">
+            <SelectTrigger className="w-[150px] h-10 rounded-md border-gray-200 hover:border-[#F4AC35] focus:ring-[#F4AC35] focus:border-[#F4AC35] flex flex-row gap-1">
               <ListFilter strokeWidth={1}/>
-              <SelectValue placeholder="Classsificar" />
+              <SelectValue placeholder="Ordenar" />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="asc">A-Z</SelectItem>

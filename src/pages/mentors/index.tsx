@@ -64,7 +64,7 @@ function Billing() {
       <div className='mt-8'>
       <div className='flex flex-row justify-between items-center pb-4 border-b'>
         <h1 className='text-2xl font-semibold text-gray-500'>Mentores</h1>
-        {user === role.MENTOR && 
+        {(user === role.ADMIN || user === role.GESTOR) && 
       <Button onClick={showModal} className="h-[42px] rounded-md" icon={<PlusOutlined/>}>Adicionar Mentor</Button>
       }
       </div>
@@ -75,14 +75,14 @@ function Billing() {
       open={open}
       onCancel={handleCancel}
       footer={[
-        <button className='border border-[#F4AC35] text-[#F4AC35] font-medium rounded-md h-[42px] px-8' onClick={()=>{
+        <Button className="h-[42px] rounded-md" icon={<PlusOutlined/>} onClick={()=>{
           form.validateFields().then((values)=>{
             // form.resetFields();
             handleSubmit(values);
           }).catch((info)=>{
             console.log('Validate failed: ', info);
           })
-        }}>Adicionar</button>
+        }}>Adicionar</Button>
       ]}
       width={"60%"}>
         <Form

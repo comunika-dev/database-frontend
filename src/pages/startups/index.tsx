@@ -68,8 +68,8 @@ function MyAccount() {
     <div className='mt-8'>
     <div className='flex flex-row justify-between items-center pb-4 border-b'>
       <h1 className='text-2xl font-semibold text-gray-500'>Empreendedores</h1>
-      {user === role.EMPREENDEDOR && 
-      <Button onClick={showModal} className="h-[42px] rounded-md" icon={<PlusOutlined/>}>Adicionar startup</Button>
+      {(user === role.ADMIN || user === role.GESTOR) && 
+      <Button onClick={showModal} className="h-[42px] rounded-md" icon={<PlusOutlined/>}>Adicionar empreendedor</Button>
       }
     </div>
     <div>
@@ -79,14 +79,14 @@ function MyAccount() {
     open={open}
     onCancel={handleCancel}
     footer={[
-      <button className='border border-[#F4AC35] text-[#F4AC35] font-medium rounded-md h-[42px] px-8' onClick={()=>{
+      <Button icon={<PlusOutlined/>} className='h-[42px] rounded-md' onClick={()=>{
         form.validateFields().then((values)=>{
           // form.resetFields();
           handleSubmit(values);
         }).catch((info)=>{
           console.log('Validate failed: ', info);
         })
-      }}>Adicionar</button>
+      }}>Adicionar</Button>
     ]}
     width={"60%"}>
       <Form

@@ -5,7 +5,8 @@ export enum role {
   INVESTIDOR = 'Investidor',
   MENTOR = 'Mentor',
   VISITANTE = 'Visitante',
-  ADMIN = 'Admin'
+  ADMIN = 'Admin',
+  GESTOR = 'Gestor'
 }
 
 
@@ -20,9 +21,11 @@ export function RoleChecker(roles:string){
     return role.ALUNO
   }else if(roles === 'Mentor'){
     return role.MENTOR
-  }else if(roles === null) {
-    return role.VISITANTE
-  }else{
+  }else if(roles === 'Gestor') {
+    return role.GESTOR
+  }else if(roles === 'Admin'){
     return role.ADMIN
+  } else {
+    return role.VISITANTE
   }
 }
