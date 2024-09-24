@@ -1,0 +1,7 @@
+export {default as Home } from './home'
+export {default as Investors} from './investors'
+export {default as StartUps} from './startups'
+export {default as Mentors} from './mentors'
+export {default as Campany} from './campany'
+export {default as SignIn} from './sign-in'
+export {default as PageNotFount} from './pagenotfound'
