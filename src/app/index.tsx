@@ -38,7 +38,7 @@ const App = () => {
     <ConfigProvider locale={ptBr} theme={theme}>
       <Layout className="min-h-screen">
         <Header className={`${styles.header} ${isCollapsed ? styles.folded : ''}`}>
-          <h1 className="text-2xl font-bold">Banco de dados</h1>
+          <h1 className="text-2xl font-bold">Ecossistema</h1>
           <div>
             <Button className="h-[40px] rounded-md" href="https://uz.comunika.co.mz">Voltar ao inicio</Button>
           </div>
